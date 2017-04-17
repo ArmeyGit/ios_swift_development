@@ -9,18 +9,30 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    var centerView:UIView = {
-        let myView = UIView()
-        myView.backgroundColor = UIColor.red
-        myView.translatesAutoresizingMaskIntoConstraints = false
-        return myView
+    
+    var label1:UILabel = {
+        let label = UILabel()
+        label.backgroundColor = UIColor.red
+        label.textAlignment = .center
+        label.textColor = UIColor.white
+        label.text = "Label 1"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 55 / 255, green: 117/255, blue: 67 / 255, alpha: 1)
-        view.addSubview(centerView)
-        view.addConstraint(NSLayoutConstraint(item: centerView,
+    var label2:UILabel = {
+        let label = UILabel()
+        label.backgroundColor = UIColor.blue
+        label.textAlignment = .center
+        label.textColor = UIColor.white
+        label.text = "Label 2"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private func autolayoutLabel1() {
+        view.addSubview(label1)
+        view.addConstraint(NSLayoutConstraint(item: label1,
                                               attribute: .top,
                                               relatedBy: .equal,
                                               toItem: view,
@@ -28,30 +40,70 @@ class MainViewController: UIViewController {
                                               multiplier: 1,
                                               constant: 40))
         
-        view.addConstraint(NSLayoutConstraint(item: centerView,
-                                              attribute: .bottom,
+        view.addConstraint(NSLayoutConstraint(item: label1,
+                                              attribute: .left,
                                               relatedBy: .equal,
                                               toItem: view,
-                                              attribute: .bottom,
+                                              attribute: .left,
                                               multiplier: 1,
-                                              constant: -40))
+                                              constant: 40))
         
-        view.addConstraint(NSLayoutConstraint(item: centerView,
+        view.addConstraint(NSLayoutConstraint(item: label1,
+                                              attribute: .width,
+                                              relatedBy: .equal,
+                                              toItem: nil,
+                                              attribute: .notAnAttribute,
+                                              multiplier: 1,
+                                              constant: 100))
+        
+        view.addConstraint(NSLayoutConstraint(item: label1,
+                                              attribute: .height,
+                                              relatedBy: .equal,
+                                              toItem: nil,
+                                              attribute: .notAnAttribute,
+                                              multiplier: 1,
+                                              constant: 50))
+    }
+    private func autolayoutLabel2() {
+        view.addSubview(label2)
+        view.addConstraint(NSLayoutConstraint(item: label2,
+                                              attribute: .height,
+                                              relatedBy: .equal,
+                                              toItem: label1,
+                                              attribute: .height,
+                                              multiplier: 1,
+                                              constant: 0))
+        
+        view.addConstraint(NSLayoutConstraint(item: label2,
+                                              attribute: .width,
+                                              relatedBy: .equal,
+                                              toItem: label1,
+                                              attribute: .width,
+                                              multiplier: 1,
+                                              constant: 0))
+        
+        view.addConstraint(NSLayoutConstraint(item: label2,
                                               attribute: .left,
                                               relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .left,
+                                              toItem: label1,
+                                              attribute: .right,
                                               multiplier: 1,
                                               constant: 20))
         
-        view.addConstraint(NSLayoutConstraint(item: centerView,
-                                              attribute: .right,
+        view.addConstraint(NSLayoutConstraint(item: label2,
+                                              attribute: .centerY,
                                               relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .right,
+                                              toItem: label1,
+                                              attribute: .centerY,
                                               multiplier: 1,
-                                              constant: -20))
-        
+                                              constant: 0))
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor(red: 55 / 255, green: 117/255, blue: 67 / 255, alpha: 1)
+        autolayoutLabel1()
+        autolayoutLabel2()
     
 
         // Do any additional setup after loading the view.
