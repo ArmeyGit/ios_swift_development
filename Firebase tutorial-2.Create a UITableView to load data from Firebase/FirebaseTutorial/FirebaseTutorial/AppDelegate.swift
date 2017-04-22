@@ -14,8 +14,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 //    var fireBaseStorage:
     var window: UIWindow?
-    var fireBaseRef: FIRDatabaseReference!
-    
+    var fireBaseRef: FIRDatabaseReference!    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         fireBaseRef = FIRDatabase.database().reference()
-        self.fireBaseRef.child("pets").child("pet1").setValue(["name": "meo meo", "age": "3"])
-        self.fireBaseRef.child("pets").child("pet2").setValue(["name": "meo meo2", "age": "4"])
-        self.fireBaseRef.child("pets").child("pet3").setValue(["name": "meo meo3", "age": "5"])
+//        self.fireBaseRef.child("pets").child("pet1").setValue(["name": "meo meo", "age": "3"])
+//        self.fireBaseRef.child("pets").child("pet2").setValue(["name": "meo meo2", "age": "4"])
+//        self.fireBaseRef.child("pets").child("pet3").setValue(["name": "meo meo3", "age": "5"])
         
         return true
     }
