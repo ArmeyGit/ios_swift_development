@@ -24,10 +24,10 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                               relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0))
         tableView?.register(UINib(nibName: "PetTableViewCell", bundle: nil), forCellReuseIdentifier: "PetTableViewCell")
         // Do any additional setup after loading the view.
-        pets = [Pet]()
         (UIApplication.shared.delegate as! AppDelegate).fireBaseRef.observe(.value, with: { snapshot in
             let dictRoot = snapshot.value as? [String : AnyObject] ?? [:]
             let dictPets = dictRoot["pets"] as? [String: AnyObject] ?? [:]
+            self.pets = [Pet]()
             for key in Array(dictPets.keys) {
                 self.pets.append(Pet(dictionary: dictPets[key] as! [String: AnyObject], key: key))
             }
@@ -54,6 +54,41 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBAction func btnAdd(sender: AnyObject) {
         print("press btnAdd")
+        var txtPetName: UITextField?
+        var txtPetAge: UITextField?
+        let actionSheetController: UIAlertController = UIAlertController(title: "Add Pet",
+                                                                         message: "Input Pet's information:",
+                                                                         preferredStyle: .alert)
+        //Create and add the Cancel action
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            //Do some stuff
+        }
+        actionSheetController.addAction(cancelAction)
+        let saveAction: UIAlertAction = UIAlertAction(title: "Save", style: .default) { action -> Void in
+            //Do some other stuff
+            if(txtPetName?.text == nil || txtPetName?.text == "") {
+                return
+            }
+            
+            (UIApplication.shared.delegate as! AppDelegate).fireBaseRef.child("pets").child(txtPetName!.text ?? "")
+                .setValue(["name": txtPetName?.text ?? "",
+                           "age": txtPetAge?.text ?? ""])
+        }
+        actionSheetController.addAction(saveAction)
+        //Add a text field
+        actionSheetController.addTextField { (textField) in
+            textField.placeholder = "Enter pet's name"
+            txtPetName = textField
+        }
+        //Add a text field
+        actionSheetController.addTextField { (textField) in
+            textField.placeholder = "Enter pet's age"
+            txtPetAge = textField
+        }
+        //Present the AlertController
+        self.present(actionSheetController, animated: true) {
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,6 +109,13 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete) {
+            let deletingPet = self.pets[indexPath.row]
+            (UIApplication.shared.delegate as! AppDelegate).fireBaseRef.child("pets").child(deletingPet.name).removeValue()
+        }
     }
 
 

@@ -12,7 +12,7 @@
         }
         actionSheetController.addAction(cancelAction)
         //Create and an option action
-        let nextAction: UIAlertAction = UIAlertAction(title: "Save", style: .default) { action -> Void in
+        let saveAction: UIAlertAction = UIAlertAction(title: "Save", style: .default) { action -> Void in
             //Do some other stuff
             if(txtPetName?.text == nil || txtPetName?.text == "") {
                 return
@@ -22,7 +22,7 @@
                 .setValue(["name": txtPetName?.text ?? "",
                            "age": txtPetAge?.text ?? ""])
         }
-        actionSheetController.addAction(nextAction)
+        actionSheetController.addAction(saveAction)
         
         //Add a text field
         actionSheetController.addTextField { (textField) in
