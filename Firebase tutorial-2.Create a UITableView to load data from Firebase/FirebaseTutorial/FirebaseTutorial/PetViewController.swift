@@ -7,14 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView:UITableView?
-    var pets: [String: AnyObject] = [:]
+    var pets: [Pet] = [Pet]()
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView?.backgroundColor = UIColor.red
-        tableView?.translatesAutoresizingMaskIntoConstraints = false        
+        tableView?.translatesAutoresizingMaskIntoConstraints = false
         view.addConstraint(NSLayoutConstraint(item: tableView ?? UITableView(), attribute: .top,
                                               relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: tableView ?? UITableView(), attribute: .right,
@@ -25,9 +25,13 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                               relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0))
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
         // Do any additional setup after loading the view.
+        pets = [Pet]()
         (UIApplication.shared.delegate as! AppDelegate).fireBaseRef.observe(.value, with: { snapshot in
-            let dictPets = snapshot.value as? [String : AnyObject] ?? [:]
-            self.pets = dictPets["pets"] as! [String : AnyObject]
+            let dictRoot = snapshot.value as? [String : AnyObject] ?? [:]
+            let dictPets = dictRoot["pets"] as? [String: AnyObject] ?? [:]
+            for key in Array(dictPets.keys) {
+                self.pets.append(Pet(dictionary: dictPets[key] as! [String: AnyObject], key: key))
+            }
             self.tableView?.reloadData()
             print(dictPets)
         })
@@ -40,15 +44,18 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pets.keys.count
+        return pets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as UITableViewCell
-        self.pets.keys
-//        cell.textLabel?.text = pets[pets.keys[indexPath.row] as! String]["name"] as? String
+        let eachPet = pets[indexPath.row]
+        cell.textLabel?.text = "Name: \(eachPet.name), age: \(eachPet.age)"
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 
 }
