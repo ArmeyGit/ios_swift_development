@@ -1,0 +1,50 @@
+@IBAction func btnAdd(sender: AnyObject) {
+        print("press btnAdd")
+        var txtPetName: UITextField?
+        var txtPetAge: UITextField?
+        let actionSheetController: UIAlertController = UIAlertController(title: "Add Pet",
+                                                                         message: "Input Pet's information:",
+                                                                         preferredStyle: .alert)
+        
+        //Create and add the Cancel action
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            //Do some stuff
+        }
+        actionSheetController.addAction(cancelAction)
+        //Create and an option action
+        let nextAction: UIAlertAction = UIAlertAction(title: "Save", style: .default) { action -> Void in
+            //Do some other stuff
+            if(txtPetName?.text == nil || txtPetName?.text == "") {
+                return
+            }
+            
+            (UIApplication.shared.delegate as! AppDelegate).fireBaseRef.child("pets").child(txtPetName!.text ?? "")
+                .setValue(["name": txtPetName?.text ?? "",
+                           "age": txtPetAge?.text ?? ""])
+        }
+        actionSheetController.addAction(nextAction)
+        
+        //Add a text field
+        actionSheetController.addTextField { (textField) in
+            textField.placeholder = "Enter pet's name"
+            txtPetName = textField
+        }
+        
+        //Add a text field
+        actionSheetController.addTextField { (textField) in
+            textField.placeholder = "Enter pet's age"
+            txtPetAge = textField
+        }
+        
+        //Present the AlertController
+        self.present(actionSheetController, animated: true) { 
+            
+        }
+
+
+func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete) {
+            let deletingPet = self.pets[indexPath.row]  
+            (UIApplication.shared.delegate as! AppDelegate).fireBaseRef.child("pets").child(deletingPet.name).removeValue()
+        }
+    }        

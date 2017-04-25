@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PetViewController" customModule="FirebaseTutorial" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="pbb-LP-NTo" id="8H7-gZ-p7P"/>
+                <outlet property="tableView" destination="eIj-MS-Xm6" id="bQd-Pb-TkT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,13 +20,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pbb-LP-NTo">
-                    <rect key="frame" x="0.0" y="110" width="240" height="128"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eIj-MS-Xm6">
+                    <rect key="frame" x="32" y="243" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="6Ll-GF-Jby"/>
-                        <outlet property="delegate" destination="-1" id="Mmk-Nf-Csd"/>
+                        <outlet property="dataSource" destination="-1" id="NUG-Un-aSE"/>
+                        <outlet property="delegate" destination="-1" id="sRY-9n-DP0"/>
                     </connections>
                 </tableView>
             </subviews>

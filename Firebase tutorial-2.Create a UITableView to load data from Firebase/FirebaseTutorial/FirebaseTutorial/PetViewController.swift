@@ -2,12 +2,11 @@
 //  PetViewController.swift
 //  FirebaseTutorial
 //
-//  Created by Nguyen Duc Hoang on 4/21/17.
+//  Created by Nguyen Duc Hoang on 4/25/17.
 //  Copyright © 2017 Nguyen Duc Hoang. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
 class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView:UITableView?
@@ -23,7 +22,7 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                               relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: tableView ?? UITableView(), attribute: .left,
                                               relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0))
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         // Do any additional setup after loading the view.
         pets = [Pet]()
         (UIApplication.shared.delegate as! AppDelegate).fireBaseRef.observe(.value, with: { snapshot in
@@ -36,19 +35,19 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             print(dictPets)
         })
 
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
         let eachPet = pets[indexPath.row]
         cell.textLabel?.text = "Name: \(eachPet.name), age: \(eachPet.age)"
         return cell
@@ -57,5 +56,6 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+
 
 }
