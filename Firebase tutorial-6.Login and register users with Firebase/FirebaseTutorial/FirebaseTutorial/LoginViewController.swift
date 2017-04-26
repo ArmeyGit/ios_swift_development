@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  FirebaseTutorial
 //
-//  Created by Nguyen Duc Hoang on 4/24/17.
+//  Created by Nguyen Duc Hoang on 4/26/17.
 //  Copyright © 2017 Nguyen Duc Hoang. All rights reserved.
 //
 
@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
         txtPassword?.translatesAutoresizingMaskIntoConstraints = false
         btnLogin?.translatesAutoresizingMaskIntoConstraints = false
         btnRegister?.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 68 / 255, green: 169 / 255, blue: 128 / 255, alpha: 1)
         navigationController?.isNavigationBarHidden = true
         
         view.addConstraint(NSLayoutConstraint(item: txtEmail, attribute: .width, relatedBy: .equal,
@@ -42,7 +43,7 @@ class LoginViewController: UIViewController {
                                               toItem: txtEmail, attribute: .height, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: txtPassword, attribute: .centerX, relatedBy: .equal,
                                               toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
-        
+
         view.addConstraint(NSLayoutConstraint(item: btnLogin, attribute: .top, relatedBy: .equal,
                                               toItem: txtPassword, attribute: .bottom, multiplier: 1, constant: 15))
         view.addConstraint(NSLayoutConstraint(item: btnLogin, attribute: .width, relatedBy: .equal,
@@ -63,7 +64,6 @@ class LoginViewController: UIViewController {
                                               toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
         btnRegister.addTarget(self, action: #selector(btnRegister(sender:)), for: .touchUpInside)
         
-        view.backgroundColor = UIColor(red: 68 / 255, green: 169 / 255, blue: 128 / 255, alpha: 1)
         btnLogin.backgroundColor = UIColor.orange
         btnLogin.setTitleColor(UIColor.white, for: .normal)
         btnRegister.backgroundColor = UIColor.orange
@@ -73,16 +73,17 @@ class LoginViewController: UIViewController {
         btnLogin.layer.masksToBounds = true
         btnRegister.layer.cornerRadius = 5
         btnRegister.layer.masksToBounds = true
+        // Do any additional setup after loading the view.
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+            //Automatically login
             if user != nil {
                 let petViewController: PetViewController = PetViewController(nibName: "PetViewController", bundle: nil)
                 self.navigationController?.pushViewController(petViewController, animated: true)
             }
         }
-        // Do any additional setup after loading the view.
     }
-    
     @IBAction func btnLogin(sender: AnyObject) {
+        print("press Login")
         FIRAuth.auth()!.signIn(withEmail: self.txtEmail.text!,
                                password: self.txtPassword.text!){ (firUser, error) in
                                 if firUser != nil {
@@ -90,12 +91,10 @@ class LoginViewController: UIViewController {
                                     self.navigationController?.pushViewController(petViewController, animated: true)
                                 }
         }
-        
-        let petViewController: PetViewController = PetViewController(nibName: "PetViewController", bundle: nil)
-        self.navigationController?.pushViewController(petViewController, animated: true)
     }
     
     @IBAction func btnRegister(sender: AnyObject) {
+        print("press Register")
         if(txtEmail.text?.isEmpty == true) {
             print("Email is blank")
             return
@@ -103,6 +102,7 @@ class LoginViewController: UIViewController {
         FIRAuth.auth()!.createUser(withEmail: txtEmail.text!,
                                    password: txtPassword.text!) { user, error in
                                     if error == nil {
+                                        //Login
                                         FIRAuth.auth()!.signIn(withEmail: self.txtEmail.text!,
                                                                password: self.txtPassword.text!)
                                         let petViewController: PetViewController = PetViewController(nibName: "PetViewController", bundle: nil)
@@ -110,11 +110,8 @@ class LoginViewController: UIViewController {
                                     }
         }
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 }

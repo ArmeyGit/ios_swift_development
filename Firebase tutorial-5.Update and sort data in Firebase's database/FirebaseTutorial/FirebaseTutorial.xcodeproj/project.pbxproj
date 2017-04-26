@@ -8,27 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		E923CCF5818941221E2AC41C /* Pods_FirebaseTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F7CB3BF7261B9E3BC6FC6F /* Pods_FirebaseTutorial.framework */; };
-		FA434A301EAA6F1D00CDFD95 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA434A2E1EAA6F1D00CDFD95 /* PetViewController.swift */; };
-		FA434A311EAA6F1D00CDFD95 /* PetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA434A2F1EAA6F1D00CDFD95 /* PetViewController.xib */; };
-		FA4CCA931EAB739300106ABA /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CCA921EAB739300106ABA /* Pet.swift */; };
-		FA4CCA971EAB975900106ABA /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CCA951EAB975900106ABA /* PetTableViewCell.swift */; };
-		FA4CCA981EAB975900106ABA /* PetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4CCA961EAB975900106ABA /* PetTableViewCell.xib */; };
 		FA538B011EAA192600C11CD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA538B001EAA192600C11CD2 /* AppDelegate.swift */; };
 		FA538B061EAA192600C11CD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA538B041EAA192600C11CD2 /* Main.storyboard */; };
 		FA538B081EAA192600C11CD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA538B071EAA192600C11CD2 /* Assets.xcassets */; };
 		FA538B0B1EAA192600C11CD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA538B091EAA192600C11CD2 /* LaunchScreen.storyboard */; };
 		FA538B131EAA197E00C11CD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA538B121EAA197E00C11CD2 /* GoogleService-Info.plist */; };
+		FA98D3FC1EAF4AB600D35359 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98D3FA1EAF4AB600D35359 /* PetViewController.swift */; };
+		FA98D3FD1EAF4AB600D35359 /* PetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA98D3FB1EAF4AB600D35359 /* PetViewController.xib */; };
+		FA98D4001EAF4AE100D35359 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98D3FF1EAF4AE100D35359 /* Pet.swift */; };
+		FA98D4031EAF566A00D35359 /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98D4011EAF566A00D35359 /* PetTableViewCell.swift */; };
+		FA98D4041EAF566A00D35359 /* PetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA98D4021EAF566A00D35359 /* PetTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		26D74FB879B55F6AE93CAD92 /* Pods-FirebaseTutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTutorial.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseTutorial/Pods-FirebaseTutorial.release.xcconfig"; sourceTree = "<group>"; };
 		DE1F93C0E40838B7276BA815 /* Pods-FirebaseTutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTutorial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseTutorial/Pods-FirebaseTutorial.debug.xcconfig"; sourceTree = "<group>"; };
 		F2F7CB3BF7261B9E3BC6FC6F /* Pods_FirebaseTutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseTutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA434A2E1EAA6F1D00CDFD95 /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
-		FA434A2F1EAA6F1D00CDFD95 /* PetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetViewController.xib; sourceTree = "<group>"; };
-		FA4CCA921EAB739300106ABA /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
-		FA4CCA951EAB975900106ABA /* PetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTableViewCell.swift; sourceTree = "<group>"; };
-		FA4CCA961EAB975900106ABA /* PetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetTableViewCell.xib; sourceTree = "<group>"; };
 		FA538AFD1EAA192600C11CD2 /* FirebaseTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA538B001EAA192600C11CD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA538B051EAA192600C11CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,6 +31,11 @@
 		FA538B0A1EAA192600C11CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA538B0C1EAA192600C11CD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA538B121EAA197E00C11CD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		FA98D3FA1EAF4AB600D35359 /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
+		FA98D3FB1EAF4AB600D35359 /* PetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetViewController.xib; sourceTree = "<group>"; };
+		FA98D3FF1EAF4AE100D35359 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		FA98D4011EAF566A00D35359 /* PetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTableViewCell.swift; sourceTree = "<group>"; };
+		FA98D4021EAF566A00D35359 /* PetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,23 +67,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FA4CCA911EAB738300106ABA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				FA4CCA921EAB739300106ABA /* Pet.swift */,
-			);
-			path = Models;
-			sourceTree = SOURCE_ROOT;
-		};
-		FA4CCA941EAB96CD00106ABA /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				FA4CCA951EAB975900106ABA /* PetTableViewCell.swift */,
-				FA4CCA961EAB975900106ABA /* PetTableViewCell.xib */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		FA538AF41EAA192600C11CD2 = {
 			isa = PBXGroup;
 			children = (
@@ -105,18 +88,27 @@
 		FA538AFF1EAA192600C11CD2 /* FirebaseTutorial */ = {
 			isa = PBXGroup;
 			children = (
-				FA4CCA911EAB738300106ABA /* Models */,
-				FA4CCA941EAB96CD00106ABA /* Cells */,
 				FA538B121EAA197E00C11CD2 /* GoogleService-Info.plist */,
 				FA538B001EAA192600C11CD2 /* AppDelegate.swift */,
-				FA434A2E1EAA6F1D00CDFD95 /* PetViewController.swift */,
-				FA434A2F1EAA6F1D00CDFD95 /* PetViewController.xib */,
+				FA98D3FA1EAF4AB600D35359 /* PetViewController.swift */,
+				FA98D4011EAF566A00D35359 /* PetTableViewCell.swift */,
+				FA98D4021EAF566A00D35359 /* PetTableViewCell.xib */,
+				FA98D3FE1EAF4AD300D35359 /* Models */,
+				FA98D3FB1EAF4AB600D35359 /* PetViewController.xib */,
 				FA538B041EAA192600C11CD2 /* Main.storyboard */,
 				FA538B071EAA192600C11CD2 /* Assets.xcassets */,
 				FA538B091EAA192600C11CD2 /* LaunchScreen.storyboard */,
 				FA538B0C1EAA192600C11CD2 /* Info.plist */,
 			);
 			path = FirebaseTutorial;
+			sourceTree = "<group>";
+		};
+		FA98D3FE1EAF4AD300D35359 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA98D3FF1EAF4AE100D35359 /* Pet.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +177,9 @@
 				FA538B0B1EAA192600C11CD2 /* LaunchScreen.storyboard in Resources */,
 				FA538B131EAA197E00C11CD2 /* GoogleService-Info.plist in Resources */,
 				FA538B081EAA192600C11CD2 /* Assets.xcassets in Resources */,
-				FA4CCA981EAB975900106ABA /* PetTableViewCell.xib in Resources */,
+				FA98D4041EAF566A00D35359 /* PetTableViewCell.xib in Resources */,
 				FA538B061EAA192600C11CD2 /* Main.storyboard in Resources */,
-				FA434A311EAA6F1D00CDFD95 /* PetViewController.xib in Resources */,
+				FA98D3FD1EAF4AB600D35359 /* PetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,9 +238,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA4CCA931EAB739300106ABA /* Pet.swift in Sources */,
-				FA4CCA971EAB975900106ABA /* PetTableViewCell.swift in Sources */,
-				FA434A301EAA6F1D00CDFD95 /* PetViewController.swift in Sources */,
+				FA98D4001EAF4AE100D35359 /* Pet.swift in Sources */,
+				FA98D4031EAF566A00D35359 /* PetTableViewCell.swift in Sources */,
+				FA98D3FC1EAF4AB600D35359 /* PetViewController.swift in Sources */,
 				FA538B011EAA192600C11CD2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
