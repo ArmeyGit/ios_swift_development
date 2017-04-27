@@ -69,6 +69,33 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let eachPet = pets[indexPath.row]
         cell.lblPetName.text = eachPet.name
         cell.lblPetAge.text = "\(eachPet.age)"
+        if(eachPet.imageName.characters.count > 0) {
+            let imageRef = (UIApplication.shared.delegate as! AppDelegate).firebaseStorage?.reference().child("images").child(eachPet.imageName)
+//            Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+            imageRef?.data(withMaxSize: 10 * 1024 * 1024) { data, error in
+                if error != nil {
+                    cell.imgageViewPet.image = #imageLiteral(resourceName: "icon_loading")
+                } else {
+                    // Data for "images/island.jpg" is returned
+                    cell.imgageViewPet.image = UIImage(data: data!)
+                }
+            }
+            
+//            let downloadTask = imageRef?.write(toFile: URL(string: eachPet.imageName)!) { url, error in
+//                if error != nil {
+//                    cell.imgageViewPet.image = #imageLiteral(resourceName: "icon_loading")
+//                } else {
+//                    // Data for "images/island.jpg" is returned
+//                    try! cell.imgageViewPet.image = UIImage(data: Data(contentsOf: url!))
+//                }
+//            }
+
+            
+
+        }
+        
+        
+        
         return cell
     }
     
